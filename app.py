@@ -4,6 +4,7 @@ import streamlit as st
 from modules.scraper import scrape_rss, rss_feeds
 from modules.vector_db import store_news, query_news
 from modules.rag_engine import generate_summary
+from modules.telegram_bot import send_telegram_message, send_telegram_audio
 from modules.audio import text_to_audio
 
 load_dotenv()
@@ -17,6 +18,10 @@ user_api_key = st.sidebar.text_input("Enter Gemini API Key", type="password")
 if not user_api_key:
     st.sidebar.warning("Enter your Gemini API key to proceed.")
 
+st.sidebar.header("📲 Telegram (Optional)")
+bot_token = st.sidebar.text_input("Bot Token", type="password")
+chat_id = st.sidebar.text_input("Chat ID")
+
 # ── User Preferences ──────────────────────────────────────────
 st.sidebar.header("🎯 Preferences")
 
@@ -24,7 +29,7 @@ days = st.sidebar.slider("News from last X days", min_value=1, max_value=7, valu
 
 selected_interests = st.sidebar.multiselect(
     "Select Your Interests",
-    ["Artificial Intelligence(AI)", "Generative AI", "Large Language Models", "AI Automation", "Agentic AI", "AI in Business", "AI Ethics & Policy", "AI Startups & Funding"],
+    ["Artificial Intelligence(AI)", "Generative AI", "Large Language Models", "Agentic AI","AI in Business", "AI Ethics & Policy", "AI Startups & Funding"],
     default=["Artificial Intelligence(AI)", "Generative AI"]
 )
 

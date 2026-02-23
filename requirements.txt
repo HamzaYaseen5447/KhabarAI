@@ -7,5 +7,4 @@ gtts
 edge-tts
 streamlit
 pyngrok
-nest_asyncio
 python-dotenv
