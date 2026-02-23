@@ -47,6 +47,9 @@ RSS Feeds (OpenAI, MIT, DeepMind, VentureBeat...)
         ↓
    audio.py (Edge TTS)
         ↓
+   telegram_bot.py
+ (Receive Message on Telegram)
+        ↓
  Streamlit UI (app.py)
 ```
 
@@ -60,6 +63,7 @@ RSS Feeds (OpenAI, MIT, DeepMind, VentureBeat...)
 - 🌐 English & Urdu support (text + audio)
 - 🔑 BYO Gemini API key — no backend required
 - 📅 Configurable date range (1–7 days)
+- 📲 Optional Telegram delivery — send briefing & audio to your Telegram
 
 ---
 
