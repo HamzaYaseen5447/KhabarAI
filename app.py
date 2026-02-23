@@ -99,3 +99,11 @@ if st.button("🚀 Generate My AI Briefing"):
         with st.spinner("Generating audio..."):
             audio_file = text_to_audio(summary, lang=lang_code, gender=gender)
         st.audio(audio_file)
+
+    if bot_token and chat_id:
+        try:
+            send_telegram_message(bot_token, chat_id, summary)
+            send_telegram_audio(bot_token, chat_id, audio_file)
+            st.success("✅ Sent to Telegram!")
+        except Exception as e:
+            st.error(f"Telegram failed: {e}")
