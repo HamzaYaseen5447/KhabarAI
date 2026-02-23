@@ -24,7 +24,7 @@ days = st.sidebar.slider("News from last X days", min_value=1, max_value=7, valu
 
 selected_interests = st.sidebar.multiselect(
     "Select Your Interests",
-    ["Artificial Intelligence(AI)", "Generative AI", "Large Language Models", "Agentic AI","AI in Business", "AI Ethics & Policy", "AI Startups & Funding"],
+    ["Artificial Intelligence(AI)", "Generative AI", "Large Language Models", "AI Automation", "Agentic AI", "AI in Business", "AI Ethics & Policy", "AI Startups & Funding"],
     default=["Artificial Intelligence(AI)", "Generative AI"]
 )
 
