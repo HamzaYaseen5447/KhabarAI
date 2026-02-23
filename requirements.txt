@@ -1,0 +1,11 @@
+feedparser
+google-genai
+chromadb
+requests
+python-telegram-bot
+gtts
+edge-tts
+streamlit
+pyngrok
+nest_asyncio
+python-dotenv
