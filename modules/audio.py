@@ -1,4 +1,4 @@
-import os, re, tempfile, asyncio
+import os, re, tempfile, subprocess
 
 VOICE_MAP = {
     "en": {
@@ -22,15 +22,12 @@ def text_to_audio(text, filename="summary.mp3", lang="en", gender="Female"):
     if not text or not text.strip():
         raise ValueError("Cannot convert empty text to audio.")
 
-    import edge_tts
-
     clean = clean_text(text)
     voice = VOICE_MAP.get(lang, {}).get(gender, "en-US-AriaNeural")
     output_path = os.path.join(tempfile.gettempdir(), filename)
 
-    async def _run():
-        communicate = edge_tts.Communicate(clean, voice)
-        await communicate.save(output_path)
-
-    asyncio.run(_run())
+    subprocess.run(
+        ["edge-tts", "--voice", voice, "--text", clean, "--write-media", output_path],
+        check=True
+    )
     return output_path
